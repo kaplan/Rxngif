@@ -1,0 +1,9 @@
+<!-- <h1>Picture <%# params[:id] %></h1> -->
+<nav>
+<h1>Picture # <%= @user_input %></h1>
+<a href="http://localhost:3000/pictures">Return to Index</a>
+<a href="http://localhost:3000/pictures/new">Add a new picture</a>
+</nav>
+<div class="picture">
+  <img src="<%= @picture %>">
+</div>
