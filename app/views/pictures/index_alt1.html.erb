@@ -1,0 +1,20 @@
+<!-- <div class="code"><%= @pictures.inspect %></div> -->
+<nav>
+<h1>List of Pictures</h1>
+<a href="http://localhost:3000/pictures/new">Add a new picture</a>
+</nav>
+<ul>
+  <% @pictures.each_with_index do |pic, index| %>
+    <li> <a href="http://localhost:3000/pictures/<%= index + 1 %>"> <img src="<%= pic %>"> </a> </li>
+  <% end %>
+
+  <% if @new_picture != nil %>
+    <li> <img src="<%= @new_picture %>"></li>
+    <% @pictures << @new_picture %>
+  <% end %>
+
+</ul>
+<!-- after the @new_picture is pushed into the @pictures array -->
+<!-- <div class="code"><%= @pictures.inspect %></div> -->
+
+

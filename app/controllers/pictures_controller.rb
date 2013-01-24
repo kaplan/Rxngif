@@ -6,6 +6,14 @@ class PicturesController < ApplicationController
 
     # listen for a new picture url from a query string
     @new_picture = params["picture_url"]
+    if @new_picture != nil
+      @pictures << @new_picture
+    end
+
+    # or you could just grab the param nil or not.
+    # you'll need to check nil either way here or in View.
+    # @pictures << @new_picture
+
   end
 
   def show
