@@ -1,19 +1,14 @@
-<!-- <div class="code"><%# @pictures.inspect %></div> -->
 <nav>
 <h1>List of Pictures</h1>
 <a href="http://localhost:3000/pictures/new">Add a new picture</a>
 </nav>
 
-<!-- You could push the new picture into the array before -->
-<%# if @new_picture != nil %>
-  <%# @pictures << @new_picture %>
-<%# end %>
-
-<!-- after the @new_picture is pushed into the @pictures array -->
-<!-- <div class="code"><%# @pictures.inspect %></div> -->
-
 <ul>
-  <% @pictures.each_with_index do |pic, index| %>
-    <li> <a href="http://localhost:3000/pictures/<%= index + 1 %>"> <img src="<%= pic %>"> </a> </li>
+  <% @pictures.each do |pic| %>
+    <li>
+      <a href="http://localhost:3000/pictures/<%= pic.id %>"> <img src="<%= pic.url %>"></a>
+      <p class="caption"><%= pic.caption %> <a href="/pictures/<%= pic.id %>/edit">edit</a> <a href="/pictures/<%= pic.id %>/delete">delete</a> </p>
+      <p class="city_of_origin"><%= pic.city_of_origin %></p>
+    </li>
   <% end %>
 </ul>

@@ -1,24 +1,46 @@
 class PicturesController < ApplicationController
 
+  def create
+    pic = Picture.new
+    pic.url = params[:url]
+    pic.caption = params[:caption]
+    pic.city_of_origin = params[:city_of_origin]
+    pic.save
+    redirect_to "/pictures"
+  end
+
   def index
-    # get the data from the Class Method (returns an array)
     @pictures = Picture.all
-
-    # listen for a new picture url from a query string
-    @new_picture = params["picture_url"]
-    if @new_picture != nil
-      @pictures << @new_picture
-    end
-
-    # or you could just grab the param nil or not.
-    # you'll need to check nil either way here or in View.
-    # @pictures << @new_picture
-
   end
 
   def show
     @user_input = params[:id]
-    @picture = Picture.all[@user_input.to_i - 1]
+    @picture = Picture.find_by_id(@user_input)
+  end
+
+  def update
+    pic = Picture.find_by_id(params[:id])
+    pic.url = params[:url]
+    pic.caption = params[:caption]
+    pic.city_of_origin = params[:city_of_origin]
+    pic.save
+    redirect_to "/pictures"
+  end
+
+  def edit
+    @id = params[:id]
+    @picture = Picture.find_by_id(@id)
+  end
+
+  def delete
+    pic = Picture.find_by_id(params[:id])
+    pic.destroy
+    pic.save
+    redirect_to "/pictures"
+  end
+
+  def new
+
   end
 
 end

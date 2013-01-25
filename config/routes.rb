@@ -2,8 +2,22 @@ Rxngif::Application.routes.draw do
 
   root :to => "Pictures#index"
 
-  get "/pictures", :controller => "Pictures", :action => "index"
-  get "/pictures/new", :controller => "Pictures", :action => "new"
-  get "/pictures/:id", :controller => "Pictures", :action => "show"
+  # Create
+  get "pictures/new" => "Pictures#new"
+  post "pictures/" => "Pictures#create"
+
+
+  # Read
+  get "pictures" => "Pictures#index"
+  get "pictures/:id" => "Pictures#show"
+
+  # Update
+  get "pictures/:id/edit" => "Pictures#edit"
+  post "edit_picture/:id" => "Pictures#update"
+
+  # Delete
+  get "pictures/:id/delete" => "Pictures#delete"
+
+
 
 end

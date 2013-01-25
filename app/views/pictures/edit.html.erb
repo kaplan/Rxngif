@@ -1,0 +1,14 @@
+<section>
+  <h1>Edit Picture: <%= @picture.caption %></h1>
+  <div class="picture">
+  <img width="200" src="<%= @picture.url %>">
+</div>
+
+  <form action="/edit_picture/<%= @picture.id %>" method="post">
+    <p><label>picture url:</label><input type="text" name="url" value=<%= @picture.url %>></p>
+    <p><label>caption:</label><input type="text" name="caption" value=<%= @picture.caption %>></p>
+    <p><label>city of origin:</label><input type="text" name="city_of_origin" value=<%= @picture.city_of_origin %>></p>
+    <input type="submit" value="Submit">
+  </form>
+
+</section>
