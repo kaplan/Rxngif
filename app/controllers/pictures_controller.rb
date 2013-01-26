@@ -18,6 +18,11 @@ class PicturesController < ApplicationController
     @picture = Picture.find_by_id(@user_input)
   end
 
+  def edit
+    @id = params[:id]
+    @picture = Picture.find_by_id(@id)
+  end
+
   def update
     pic = Picture.find_by_id(params[:id])
     pic.url = params[:url]
@@ -27,12 +32,18 @@ class PicturesController < ApplicationController
     redirect_to "/pictures"
   end
 
-  def edit
-    @id = params[:id]
-    @picture = Picture.find_by_id(@id)
-  end
+
 
   def delete
+    @id = params[:id]
+    @picture = Picture.find_by_id(@id)
+    # pic = Picture.find_by_id(params[:id])
+    # pic.destroy
+    # pic.save
+    # redirect_to "/pictures"
+  end
+
+  def destroy
     pic = Picture.find_by_id(params[:id])
     pic.destroy
     pic.save

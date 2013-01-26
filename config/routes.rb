@@ -6,7 +6,6 @@ Rxngif::Application.routes.draw do
   get "pictures/new" => "Pictures#new"
   post "pictures/" => "Pictures#create"
 
-
   # Read
   get "pictures" => "Pictures#index"
   get "pictures/:id" => "Pictures#show"
@@ -17,7 +16,6 @@ Rxngif::Application.routes.draw do
 
   # Delete
   get "pictures/:id/delete" => "Pictures#delete"
-
-
+  post "delete_picture/:id" => "Pictures#destroy"
 
 end

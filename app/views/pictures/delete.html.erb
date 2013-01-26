@@ -1,0 +1,15 @@
+<section>
+  <h1>Delete Picture: <%= @picture.caption %></h1>
+  <h2>Are you sure you want to permanently delete?</h2>
+  <div class="picture">
+    <img width="250" src="<%= @picture.url %>">
+  </div>
+
+  <form action="/delete_picture/<%= @picture.id %>" method="post">
+    <input type="submit" value="Delete">
+  </form>
+  <form action="/pictures" method="get">
+    <input type="submit" value="Cancel">
+  </form>
+
+</section>
